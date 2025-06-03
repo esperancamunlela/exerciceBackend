@@ -48,9 +48,10 @@ export const deleteUser = (req, res) => {
   res.status(200).json({ message: 'Usuário eliminado com sucesso' })
 }
 
-export const updateCourse = (req, res) => {
+export const updateUser = (req, res) => {
   const id = req.parms.id
-  const { name, email, password } = req.body
+  const body= req.body
+  const { name, email, password } =body
   const updateUser = users.findIndex(
     (user) => Number(user.id) === Number(id)
   )

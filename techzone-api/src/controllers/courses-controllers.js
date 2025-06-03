@@ -18,8 +18,8 @@ export const getCurso = (req, res) => {
 }
 
 export const createCourse = (req, res) => {
-  const { title, description, durationInHours, level, language, isFree } =
-    req.body
+  const body = req.body
+  const { title, description, durationInHours, level, language, isFree } = body
 
   const novoCurso = {
     id: (coursesData.length + 1).toString(),
@@ -52,8 +52,9 @@ export const deleteCourse = (req, res) => {
 
 export const updateCourse = (req, res) => {
   const id = req.parms.id
-  const { title, description, durationInHours, level, language, isFree } =
-    req.body
+const body = req.body
+
+  const { title, description, durationInHours, level, language, isFree } =body
   const updateCurso = coursesData.findIndex(
     (curso) => String(curso.id) === String(id)
   )
